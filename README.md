@@ -6,3 +6,11 @@
 - add Navbar Component
 - Create a separate Navbar component
 
+
+Body
+    Navbar
+    Routes/ => Feed
+    Routes/login => Login
+    Routes/connections => Connections
+    Routes/profile => Profile
+
