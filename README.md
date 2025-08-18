@@ -14,3 +14,10 @@ Body
     Routes/connections => Connections
     Routes/profile => Profile
 
+## Create Login Page
+- install axios
+- solve corse issue => add middleware to app with config 
+  {origin,credentials}
+- Frontend {withCredentials}
+- install axios
+
