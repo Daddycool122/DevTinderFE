@@ -1,14 +1,27 @@
 import React from 'react'
 import { FaLaptopCode } from "react-icons/fa";
 import  { useSelector } from "react-redux";
-
+import {Link} from 'react-router'
+import { BASE_URL } from '../utils/constants';
+import { useNavigate } from 'react-router';
+import { removeUser } from '../utils/userSlice';
+import {useDispatch} from 'react-redux'
+import axios from 'axios'
 const Navbar = ()=>{
   const user = useSelector(store=>store.user);
-  console.log(user)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleLogout = async()=>{
+    axios.post(BASE_URL+'/logout',{},{withCredentials:true})
+    dispatch(removeUser());
+    navigate('/login')
+
+  }
+  
     return (
         <div className="navbar bg-base-300 shadow-sm">
   <div className="flex-1">
-    <a className="btn btn-ghost text-2xl font-bold"><FaLaptopCode className='mt-0.5'/>DevTinder</a>
+    <Link to='/feed' className="btn btn-ghost text-2xl font-bold"><FaLaptopCode className='mt-0.5'/>DevTinder</Link>
   </div>
   
   <div className="flex-none">
@@ -30,13 +43,13 @@ const Navbar = ()=>{
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <a className="justify-between">
+          <Link to='/profile' className="justify-between">
             Profile
             <span className="badge">New</span>
-          </a>
+          </Link>
         </li>
         <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><a onClick = {handleLogout}>Logout</a></li>
       </ul>
     </div>}
   </div>

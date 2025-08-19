@@ -21,3 +21,8 @@ Body
 - Frontend {withCredentials}
 - install axios
 
+## Redux
+- Install redux/toolkit
+- Configure a store
+- 
+
