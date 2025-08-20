@@ -21,7 +21,9 @@ const Connections = () => {
   };
 
   useEffect(() => {
+    if (!connections){
     getConnections();
+    }
   }, []);
 
   if (!connections) return;
