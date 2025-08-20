@@ -5,6 +5,7 @@ import {Link} from 'react-router'
 import { BASE_URL } from '../utils/constants';
 import { useNavigate } from 'react-router';
 import { removeUser } from '../utils/userSlice';
+import { removeFeed} from '../utils/feedSlice';
 import {useDispatch} from 'react-redux'
 import axios from 'axios'
 const Navbar = ()=>{
@@ -14,6 +15,7 @@ const Navbar = ()=>{
   const handleLogout = async()=>{
     axios.post(BASE_URL+'/logout',{},{withCredentials:true})
     dispatch(removeUser());
+    dispatch(removeFeed())
     navigate('/login')
 
   }
@@ -48,7 +50,7 @@ const Navbar = ()=>{
             <span className="badge">New</span>
           </Link>
         </li>
-        <li><a>Settings</a></li>
+        <li><Link to = '/connections'>Connections</Link></li>
         <li><a onClick = {handleLogout}>Logout</a></li>
       </ul>
     </div>}

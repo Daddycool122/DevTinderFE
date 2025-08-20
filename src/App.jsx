@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Feed from './components/Feed'
 import Body from './components/Body'
 import Profile from './components/Profile'
+import Connections from './components/Connections'
 
 function AppWrapper() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/login" element={user?<Feed/>:<Login />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/connections" element={<Connections />} />
+          
         </Route>
       </Routes>
     </BrowserRouter>
