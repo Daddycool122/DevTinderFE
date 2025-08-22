@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral text-neutral-content p-4 mt-10">
+    <footer className="bg-neutral text-neutral-content p-4 fixed bottom-0 left-0 w-full z-50">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
         {/* Left side: copyright */}
         <aside className="flex items-center gap-2">

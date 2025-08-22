@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 import { Provider, useSelector } from 'react-redux'
 import { appStore } from './utils/appStore'
 import Login from './components/Login'
@@ -18,18 +18,22 @@ function AppWrapper() {
 }
 
 function App() {
-  const user = useSelector(store => store.user); // ✅ safe here because inside Provider
+  const user = useSelector(store => store.user);
 
   return (
     <BrowserRouter>
       <Routes>
+        {/* Body is parent layout */}
         <Route path="/" element={<Body />}>
-          <Route path="/login" element={user?<Feed/>:<Login />} />
-          <Route path="/feed" element={<Feed />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/connections" element={<Connections />} />
-          <Route path="/requests" element={<Requests />} />
+          {/* Default route inside Body */}
+          <Route index element={user ? <Navigate to="/feed" /> : <Navigate to="/login" />} />
           
+          {/* Other routes inside Body */}
+          <Route path="login" element={user ? <Navigate to="/feed" /> :  <Navigate to="/login" />} />
+          <Route path="feed" element={<Feed />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="connections" element={<Connections />} />
+          <Route path="requests" element={<Requests />} />
         </Route>
       </Routes>
     </BrowserRouter>

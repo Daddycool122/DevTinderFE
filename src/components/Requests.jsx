@@ -50,7 +50,7 @@ const Requests = () => {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
-        {requests.map((request, index) => {
+        {requests && requests.map((request, index) => {
           const { firstName, lastName, photoUrl, about, gender, age } =
             request.fromUserId;
           return (

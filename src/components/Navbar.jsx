@@ -5,7 +5,7 @@ import {Link} from 'react-router'
 import { BASE_URL } from '../utils/constants';
 import { useNavigate } from 'react-router';
 import { removeUser } from '../utils/userSlice';
-import { removeFeed} from '../utils/feedSlice';
+import {removeFeed} from '../utils/feedSlice'
 import {useDispatch} from 'react-redux'
 import axios from 'axios'
 const Navbar = ()=>{
