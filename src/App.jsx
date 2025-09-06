@@ -25,9 +25,6 @@ function App() {
       <Routes>
         {/* Body is parent layout */}
         <Route path="/" element={<Body />}>
-          {/* Default route inside Body */}
-          <Route index element={user ? <Navigate to="/feed" /> : <Navigate to="/login" />} />
-          
           {/* Other routes inside Body */}
           <Route path="login" element={user ? <Navigate to="/feed" /> :  <Navigate to="/login" />} />
           <Route path="feed" element={<Feed />} />
