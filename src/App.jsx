@@ -26,7 +26,7 @@ function App() {
         {/* Body is parent layout */}
         <Route path="/" element={<Body />}>
           {/* Other routes inside Body */}
-          <Route path="login" element={user ? <Navigate to="/feed" /> :  <Navigate to="/login" />} />
+          <Route path="login" element={<Login/>} />
           <Route path="feed" element={<Feed />} />
           <Route path="profile" element={<Profile />} />
           <Route path="connections" element={<Connections />} />
